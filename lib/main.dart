@@ -1,46 +1,26 @@
-import 'package:cubitexample/pages/coinsScreen.dart';
-import 'package:cubitexample/pages/firstPage.dart';
-import 'package:cubitexample/pages/hookScreen.dart';
-import 'package:cubitexample/stateManage/coins_cubit.dart';
-import 'package:cubitexample/stateManage/counter_cubit.dart';
-import 'package:cubitexample/styles/text.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:sekebit/pages/homePage.dart';
+import 'package:sekebit/pages/settingPage.dart';
 import 'pages/secoundPage.dart';
 
 void main() {
   runApp(const MyApp());
 }
 final GoRouter _router = GoRouter(
-  initialLocation: '/hook',
+  initialLocation: '/',
   routes: <RouteBase>[
     GoRoute(
       path: '/',
       builder: (BuildContext context, GoRouterState state) {
-        return  CubitCounter();
+        return  HomePage();
       },
       routes: <RouteBase>[
         GoRoute(
-          path: 'second',
+          path: 'setting',
           builder: (BuildContext context, GoRouterState state) {
-            return  SecondPage();
-          },
-        ),
-        GoRoute(
-          path: 'hook',
-          builder: (BuildContext context, GoRouterState state) {
-            return const HookScreen();
-          },
-        ),
-        GoRoute(
-          path: 'coins',
-          builder: (BuildContext context, GoRouterState state) {
-            return BlocProvider(
-              create: (_) => CoinsCubit(),
-                child:  CoinScreen(),
-            );
+            return  SettingPage();
           },
         ),
       ],
@@ -58,7 +38,7 @@ class MyApp extends StatelessWidget {
       routerConfig:_router,
       color: Colors.red,
       debugShowCheckedModeBanner: false,
-      title: 'cubit test',
+      title: 'SekeBit',
     
       theme: ThemeData(
         primarySwatch: Colors.red,

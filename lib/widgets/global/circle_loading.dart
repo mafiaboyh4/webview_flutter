@@ -1,5 +1,5 @@
-import 'package:cubitexample/styles/text.dart';
 import 'package:flutter/material.dart';
+import 'package:sekebit/styles/text.dart';
 
 Widget circleLoading({
   double? size,
